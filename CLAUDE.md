@@ -18,7 +18,7 @@ A small Express REST API (users + health check) that serves as the starter proje
 - Tests use `node:test` + `node:assert` with `supertest`; do not add Jest or Mocha.
 - Routes never touch data directly; all reads and writes go through functions exported from `db/store.js`.
 - Error responses are JSON shaped `{ error: "<message>" }` with the matching status code (400 for invalid input, 404 for missing resources).
-- Route params arrive as strings; convert IDs with `Number(req.params.id)` before looking them up (the store compares with `===`).
+- Route IDs are numbers — convert `req.params.id` with `Number(req.params.id)` before comparing (params arrive as strings and the store compares with `===`).
 
 ## Architecture
 
